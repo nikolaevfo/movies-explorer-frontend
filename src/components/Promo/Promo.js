@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Promo.css';
 import '../../vendor/container.css';
 
@@ -9,6 +9,15 @@ import mainPromoWeb from '../../images/main-promo-web.svg';
 
 
 function Promo() {
+  function handleMoreClick() {
+    let scrollOptions = {
+      left: 0,
+      top: window.innerHeight,
+      behavior: 'smooth',
+    };
+    window.scrollTo(scrollOptions);
+  }
+
   return (
     <div className="promo">
       <div className="promo__container container">
@@ -31,7 +40,7 @@ function Promo() {
           <div className="promo__text-column">
             <h1 className="promo__title">Учебный проект студента факультета Веб-разработки.</h1>
             <p className="promo__info-text">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
-            <button className="promo__content-button">Узнать больше</button>
+            <button className="promo__content-button" onClick={handleMoreClick}>Узнать больше</button>
           </div>
           <img src={mainPromoWeb} alt="Web" className="promo__content-img" />
         </div>

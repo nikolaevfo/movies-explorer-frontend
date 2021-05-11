@@ -1,6 +1,7 @@
 import React from 'react';
 import './AboutMe.css';
 import '../../vendor/container.css';
+import { Link } from 'react-router-dom';
 
 import myPhoto from '../../images/my-photo.jpg';
 
@@ -15,8 +16,12 @@ function AboutMe() {
             <h4 className="about-me__info-subtitle">Фронтенд-разработчик, 34 года</h4>
             <p className="about-me__info-text">Я живу в Ижевске. Закончил приборостроительный факультет ИжГТУ. С 2008 года работаю на Ижевском радиозаводе. Последние несколько лет увлекался версткой, что в итоге привело меня в Яндекс.Практикум. </p>
             <ul className="about-me__info-links">
-              <li className="about-me__info-link">Вконтакте</li>
-              <li className="about-me__info-link">Github</li>
+              <li className="about-me__info-item">
+                <Link to={{pathname: 'https://vk.com/id9465254'}} target="_blank" className="about-me__info-link">Вконтакте</Link>
+              </li>
+              <li className="about-me__info-item">
+                <Link to={{pathname: 'https://github.com/nikolaevfo'}} target="_blank" className="about-me__info-link">Github</Link>
+                </li>
             </ul>
           </div>
           <div className="about-me__info-photo-container">
