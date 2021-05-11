@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Promo.css';
+import '../../vendor/container.css';
 
 import Logo from '../Logo/Logo';
 
@@ -10,17 +11,17 @@ import mainPromoWeb from '../../images/main-promo-web.svg';
 function Promo() {
   return (
     <div className="promo">
-      <div className="promo__container">
+      <div className="promo__container container">
         <div className="promo__header">
           <Logo />
           <nav className="promo__header-nav">
             <ul class="promo__header-nav-buttons">
               <li class="promo__header-nav-item">
-                <button className="header__button">Регистрация</button>
+                <p className="promo__header-link">Регистрация</p>
                 {/* <Link to={props.headerLinkUrl} className="header__info-link button" onClick={props.onClick}>{props.btnText}</Link> */}
               </li>
               <li class="promo__header-nav-item">
-                <button className="header__button header__button_color_blue">Войти</button>
+                <p className="promo__header-link">Войти</p>
                 {/* <Link to={props.headerLinkUrl} className="header__info-link button" onClick={props.onClick}>{props.btnText}</Link> */}
               </li>
             </ul>

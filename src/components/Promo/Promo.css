@@ -6,12 +6,6 @@
   justify-content: center;
 }
 
-.promo__container {
-  flex: 0 1 1140px;
-  display: flex;
-  flex-direction: column;
-}
-
 .promo__header {
   display: flex;
   justify-content: space-between;
@@ -27,8 +21,8 @@
   list-style: none;
 }
 
-.header__button {
-  margin-left: 10px;
+.promo__header-link {
+  margin: 0 0 0 10px;
   background: none;
   border: none;
   padding: 8px 20px;
@@ -41,7 +35,7 @@
   line-height: 16px;
 }
 
-.header__button:hover {
+.promo__header-link:hover {
   cursor: pointer;
   background: #3456F3;
   color: #fff;
