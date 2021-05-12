@@ -135,6 +135,11 @@
   .promo__content {
     padding: 70px 0 30px;
   }
+  .promo__text-column {
+    width: calc(100% - 100px);
+    min-width: 290px;
+    align-self: center;
+  }
   .promo__title {
     margin-bottom: 22px;
     font-size: 30px;
