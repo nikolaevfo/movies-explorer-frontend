@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import './Promo.css';
 import '../../vendor/container.css';
@@ -9,10 +9,17 @@ import mainPromoWeb from '../../images/main-promo-web.svg';
 
 
 function Promo() {
+  const [promoHeight, setPromoHeight] = useState(null);
+
+  React.useEffect(() => {
+    let heightPromo = document.querySelector('.promo').clientHeight;
+   setPromoHeight(heightPromo)
+  }, [])
+  
   function handleMoreClick() {
     let scrollOptions = {
       left: 0,
-      top: window.innerHeight,
+      top: promoHeight,
       behavior: 'smooth',
     };
     window.scrollTo(scrollOptions);
