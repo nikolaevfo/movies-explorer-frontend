@@ -11,10 +11,10 @@ function Main() {
   return (
     <div className="main">
       <Promo />
-      <AboutProject />
+      {/* <AboutProject />
       <Techs />
       <AboutMe />
-      <Portfolio />
+      <Portfolio /> */}
     </div>
   );
 };
