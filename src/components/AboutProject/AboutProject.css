@@ -89,7 +89,6 @@
   flex-basis: 80%;
 } 
 
-
 @media (max-width: 1023px) {
   .about-project {
     padding: 90px 0;

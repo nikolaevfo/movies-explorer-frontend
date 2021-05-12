@@ -12,9 +12,9 @@ function Main() {
     <div className="main">
       <Promo />
       <AboutProject />
-      {/* <Techs /> */}
-      {/* <AboutMe /> */}
-      {/* <Portfolio /> */}
+      <Techs />
+      <AboutMe />
+      <Portfolio />
     </div>
   );
 };

@@ -10,7 +10,7 @@ function App() {
     <div className="root">
       <div className="page">
         <Main />
-        {/* <Footer /> */}
+        <Footer />
         {/* <Switch>
 
           <Route exact path="/">
