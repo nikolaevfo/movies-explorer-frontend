@@ -13,7 +13,7 @@ function Promo() {
 
   React.useEffect(() => {
     let heightPromo = document.querySelector('.promo').clientHeight;
-   setPromoHeight(heightPromo)
+    setPromoHeight(heightPromo)
   }, [])
   
   function handleMoreClick() {

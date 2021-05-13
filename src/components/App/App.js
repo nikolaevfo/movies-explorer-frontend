@@ -3,14 +3,16 @@ import './App.css';
 
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 function App() {
 
   return (
     <div className="root">
       <div className="page">
-        <Main />
-        <Footer />
+        <Header />
+        {/* <Main />
+        <Footer /> */}
         {/* <Switch>
 
           <Route exact path="/">
