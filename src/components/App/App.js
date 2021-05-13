@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import Main from '../Main/Main';
@@ -6,11 +6,19 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 function App() {
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+
+  function handleBurgerClick() {
+    setIsBurgerOpen(!isBurgerOpen);
+  };
 
   return (
     <div className="root">
       <div className="page">
-        <Header />
+        <Header
+          isBurgerOpen={isBurgerOpen}
+          onBurgerClick={handleBurgerClick}
+        />
         {/* <Main />
         <Footer /> */}
         {/* <Switch>

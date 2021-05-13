@@ -6,6 +6,8 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
+  overflow: hidden;
+  position: relative;
 
   font-family: "Inter", Arial, sans-serif;
   -moz-osx-font-smoothing: grayscale;
@@ -22,4 +24,9 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+}
+
+.page_burger-opened{
+  /* background: #000000; */
+  /* opacity: 0.3; */
 }
