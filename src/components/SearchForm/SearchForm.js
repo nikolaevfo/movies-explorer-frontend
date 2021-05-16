@@ -5,7 +5,7 @@ import '../../vendor/container.css';
 function SearchForm() {
  
   return (
-    <div className="search-form">
+    <section className="search-form">
       <div className="search-form__container container">
         <form action="" className="search-form__form" name="searchForm">
           <input type="text" className="search-form__input-text" placeholder="Фильм" />
@@ -18,7 +18,7 @@ function SearchForm() {
           </label>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

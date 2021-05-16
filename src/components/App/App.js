@@ -6,13 +6,17 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Movies from '../Movies/Movies';
 
+import moviesCardsSearch from '../../utils/moviesCardsSearch';
+
 function App() {
 
   return (
     <div className="root">
       <div className="page">
         <Header />
-        <Movies />
+        <Movies
+          moviesCardsSearch={moviesCardsSearch}
+        />
         <Footer />
         {/* <Main />
         <Footer /> */}
