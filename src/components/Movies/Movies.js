@@ -10,6 +10,7 @@ function Movies(props) {
       <SearchForm />
       <MoviesCardList
         moviesCardsSearch={props.moviesCardsSearch}
+        isSaved={false}
       />
     </div>
   );

@@ -23,12 +23,17 @@ function MoviesCardList(props) {
                 key={item._id}
                 id={item._id}
                 card={item}
-                // onCardLike={props.onCardLike}
+                isSaved={props.isSaved}
               />
             ))}
           </>
         </div>
-      <button className="movies-card-list__button-more" onClick={handleClickButtonMore}>Еще</button>
+        <>
+          {props.moviesCardsSearch.length < 6
+          ? <></>
+          : <button className="movies-card-list__button-more" onClick={handleClickButtonMore}>Еще</button>}
+        </>
+      
       </div>
     </section>
   );

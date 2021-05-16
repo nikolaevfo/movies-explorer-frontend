@@ -10,13 +10,13 @@ function Portfolio() {
         <h3 className="portfolio__title">Портфолио</h3>
         <ul className="portfolio__items">
           <li className="portfolio__item">
-            <Link to={{pathname: 'https://nikolaevfo.github.io/how-to-learn/'}} target="_blank" className="portfolio__item-link">Статичный сайт</Link>
-          </li>
-          <li className="portfolio__item">
             <Link to={{pathname: 'https://nikolaevfo.github.io/russian-travel/index.html'}} target="_blank" className="portfolio__item-link">Адаптивный сайт</Link>
           </li>
           <li className="portfolio__item">
-            <Link to={{pathname: 'https://nikolaevfo.github.io/mesto/index.html'}} target="_blank" className="portfolio__item-link">Одностраничное приложение</Link>
+            <Link to={{pathname: 'https://nikolaevfo.github.io/Alta-Profil/index.html'}} target="_blank" className="portfolio__item-link">Адаптивный сайт на React</Link>
+          </li>
+          <li className="portfolio__item">
+            <Link to={{pathname: 'https://github.com/nikolaevfo/react-mesto-api-full'}} target="_blank" className="portfolio__item-link">Одностраничное приложение</Link>
           </li>
         </ul>
       </div>

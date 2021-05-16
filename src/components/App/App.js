@@ -1,64 +1,75 @@
 import React, { useState } from 'react';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
-import moviesCardsSearch from '../../utils/moviesCardsSearch';
+import cardsSearch from '../../utils/cardsSearch';
+import cardsSaved from '../../utils/cardsSaved';
 
 function App() {
+  const [moviesCardsSearch, setMoviesCardsSearch] = useState(cardsSearch);
+  const [moviesCardsSaved, setMoviesCardsSaved] = useState(cardsSaved);
 
   return (
     <div className="root">
       <div className="page">
-        <Header />
+        {/* <Header />
         <Movies
           moviesCardsSearch={moviesCardsSearch}
         />
-        <Footer />
+        <SavedMovies
+          moviesCardsSearch={moviesCardsSaved}
+        />
+        <Footer /> */}
         {/* <Main />
         <Footer /> */}
-        {/* <Switch>
+        <Switch>
 
           <Route exact path="/">
             <Main />
           </Route>
 
-          <Route path="/">
+          <Route exact path="/movies">
             <Header />
+            <Movies
+              moviesCardsSearch={moviesCardsSearch}
+            />
+            <Footer />
+          </Route>
 
+          <Route exact path="/saved-movies">
+            <Header />
+            <SavedMovies
+              moviesCardsSearch={moviesCardsSaved}
+            />
+            <Footer />
+          </Route>
+
+          {/* <Route path="/">
             <Switch>
-              <Route path="/movies">
-                <Movies />
-              </Route>
-
-              <Route path="/saved-movies">
-                <SavedMovies />
-              </Route>
-
               <Route path="/profile">
                 <Profile />
               </Route>
             </Switch>
-
-            <Footer />
-          </Route>
-
-          <Route path="/signin">
+          </Route> */}
+          {/* <Route path="/signin">
             <Login />
           </Route>
-
           <Route path="/signup">
             <Register />
-          </Route>
+          </Route> */}
 
           <Route path="*">
             <PageNotFound />
           </Route>
 
-        </Switch> */}
+        </Switch>
       </div>
     </div>
   );

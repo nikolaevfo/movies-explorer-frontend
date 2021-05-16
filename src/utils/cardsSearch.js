@@ -2,7 +2,7 @@ import words33 from '../images/33-words.jpg';
 import years100 from '../images/100-years.jpg';
 import runIs from '../images/run-is.jpg';
 
-const moviesCardsSearch = [
+const cardsSearch = [
   {
     "country": "США",
     "director":"some1",
@@ -14,8 +14,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 111,
+    "_id": 211,
     "imgName": "words33"
   },
   {
@@ -29,8 +29,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 112,
+    "_id":212,
     "imgName": "years100"
   },
   {
@@ -44,8 +44,8 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 113,
+    "_id":213,
     "imgName": "runIs"
   },
   {
@@ -59,8 +59,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 114,
+    "_id":214,
     "imgName": "words33"
   },
   {
@@ -74,8 +74,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 115,
+    "_id":215,
     "imgName": "years100"
   },
   {
@@ -89,8 +89,8 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 116,
+    "_id":216,
     "imgName": "runIs"
   },
   {
@@ -104,8 +104,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 117,
+    "_id":217,
     "imgName": "words33"
   },
   {
@@ -119,8 +119,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 118,
+    "_id":218,
     "imgName": "years100"
   },
   {
@@ -134,8 +134,8 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 119,
+    "_id":219,
     "imgName": "runIs"
   },
   {
@@ -149,8 +149,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 120,
+    "_id":220,
     "imgName": "words33"
   },
   {
@@ -164,8 +164,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 121,
+    "_id":221,
     "imgName": "years100"
   },
   {
@@ -179,8 +179,8 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 122,
+    "_id":222,
     "imgName": "runIs"
   },
   {
@@ -194,8 +194,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 123,
+    "_id":223,
     "imgName": "words33"
   },
   {
@@ -209,8 +209,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 124,
+    "_id":224,
     "imgName": "years100"
   },
   {
@@ -224,8 +224,8 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 125,
+    "_id":225,
     "imgName": "runIs"
   },
   {
@@ -239,8 +239,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 126,
+    "_id":226,
     "imgName": "words33"
   },
   {
@@ -254,8 +254,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 127,
+    "_id":227,
     "imgName": "years100"
   },
   {
@@ -269,8 +269,8 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 128,
+    "_id":228,
     "imgName": "runIs"
   },
   {
@@ -284,8 +284,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 129,
+    "_id":229,
     "imgName": "words33"
   },
   {
@@ -299,8 +299,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 130,
+    "_id":230,
     "imgName": "years100"
   },
   {
@@ -314,8 +314,8 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 131,
+    "_id":231,
     "imgName": "runIs"
   },
   {
@@ -329,8 +329,8 @@ const moviesCardsSearch = [
     "nameRU":"33 слова",
     "nameEN":"33 words",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111111,
-    "_id": 111111111111111111111111,
+    "movieId": 132,
+    "_id":232,
     "imgName": "words33"
   },
   {
@@ -344,8 +344,8 @@ const moviesCardsSearch = [
     "nameRU":"100 лет",
     "nameEN":"100 years",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111112,
-    "_id":111111111111111111111112,
+    "movieId": 133,
+    "_id":233,
     "imgName": "years100"
   },
   {
@@ -359,10 +359,10 @@ const moviesCardsSearch = [
     "nameRU":"Бег это",
     "nameEN":"Run is",
     "thumbnail":"https://upload.wikimedia.org/wikipedia/ru/thumb/f/f4/%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg/230px-%D0%A2%D1%91%D0%BC%D0%BD%D1%8B%D0%B9_%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C_%282008%29_%D0%BF%D0%BE%D1%81%D1%82%D0%B5%D1%80.jpg",
-    "movieId": 111111111111111111111113,
-    "_id":111111111111111111111113,
+    "movieId": 134,
+    "_id":234,
     "imgName": "runIs"
   },
 ]
 
-export default moviesCardsSearch;
+export default cardsSearch;

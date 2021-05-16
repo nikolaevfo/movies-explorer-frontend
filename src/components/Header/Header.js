@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 import './Header.css';
 import '../../vendor/container.css';
 
@@ -23,17 +23,19 @@ function Header() {
           <div className="header__logo-menu-wrapper">
             <Logo />
           </div>
-          <ul className="header__items">
-            <li className="header__item">
-              <p className="header__link">Главная</p>
-            </li>
-            <li className="header__item">
-              <p className="header__link">Фильмы</p>
-            </li>
-            <li className="header__item">
-              <p className="header__link">Сохранённые фильмы </p>
-            </li>
-          </ul>
+          <nav className="header__nav">
+            <ul className="header__items">
+              <li className="header__item">
+                <NavLink exact to="/" className="header__link" activeClassName="header__link_active">Главная</NavLink>
+              </li>
+              <li className="header__item">
+                <NavLink to="/movies" className="header__link" activeClassName="header__link_active">Фильмы</NavLink>
+              </li>
+              <li className="header__item">
+                <NavLink to="/saved-movies" className="header__link" activeClassName="header__link_active">Сохранённые фильмы</NavLink>
+              </li>
+            </ul>
+          </nav>
           <div className="header__accaunt-conteiner">
             <p className="header__accaunt-text">Аккаунт</p>
             <div className="header__accaunt-img"></div>

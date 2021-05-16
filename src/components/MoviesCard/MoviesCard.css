@@ -31,6 +31,17 @@
   border: none;
   background: url('../../images/like-disable.svg') no-repeat;
   margin-right: 22px;
+  transition: 0.3s;
+}
+.movies-card__like-button:hover{
+  cursor: pointer;
+  background: url('../../images/like-disable-hover.svg') no-repeat;
+}
+.movies-card__like-button_saved{
+  background: url('../../images/like-active.svg') no-repeat;
+}
+.movies-card__like-button_saved:hover{
+  background: url('../../images/like-cross.svg') center/12px 12px no-repeat;
 }
 
 .movies-card__length {
