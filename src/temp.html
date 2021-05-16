@@ -1,5 +1,22 @@
-<section class="page-not-found">
-  <h2 class="page-not-found__title">404</h2>
-  <p class="page-not-found__subtitle">Страница не найдена</p>
-  <button class="page-not-found__button-back">Назад</button>
+<section class="profile">
+  <div class="profile__container">
+    <h2 class="profile">Привет, { currentUser.name }!</h2>
+    <form action="#" name="profile__form" class="profile__form" onSubmit={handleProfileSubmit}>
+      <label> Имя
+        <input type="text" name="inputName" placeholder="Введите Ваше имя" class="profile__form-iput-text" required
+          minLength="2" maxLength="40" onChange={handleChange} value={values.inputName || '' } />
+      </label>
+      <span class="profile__form-iput-text-error">{errors.inputName || ''}</span>
+
+      <label>E-mail
+        <input type="email" name="inputEmail" placeholder="Введите Ваш email" class="profile__form-iput-text"
+          required minLength="2" maxLength="40" onChange={handleChange} value={values.inputEmail || '' } />
+      </label>
+      <span class="profile__form-iput-text-error">{errors.inputEmail || ''}</span>
+
+      <button type="submit" disabled={!isValid} class={`${isValid ? `profile__form-button-edit` :
+        `profile__form-button-edit profile__form-button-edit_invalid`}`}>Редактировать</button>
+    </form>
+    <button class="profile__form-button-signout">Выйти из аккаунта</button>
+  </div>
 </section>

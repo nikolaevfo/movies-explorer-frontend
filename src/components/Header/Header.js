@@ -13,7 +13,7 @@ function Header() {
   };
 
   return (
-    <div className="header">
+    <section className="header">
       <div className={isBurgerOpen ? "header__content-background header__content-background_opened" : "header__content-background"}></div>
       <div className="header__container container">
         <div className="header__logo-wrapper">
@@ -45,7 +45,7 @@ function Header() {
           <span className={isBurgerOpen ? 'header__burger header__burger_active' : 'header__burger' } />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
