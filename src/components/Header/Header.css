@@ -30,10 +30,12 @@
   transition: 0.5s;
   background: #000;
   opacity: 0;
+  visibility: hidden;
 }
 
 .header__content-background_opened{
   opacity: 0.3;
+  visibility:  visible;
 }
 
 .header__logo-wrapper{

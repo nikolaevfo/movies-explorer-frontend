@@ -21,12 +21,8 @@
 .page {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-}
-
-.page_burger-opened{
-  /* background: #000000; */
-  /* opacity: 0.3; */
+  flex-grow: 1;
 }

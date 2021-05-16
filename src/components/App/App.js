@@ -4,21 +4,16 @@ import './App.css';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import Movies from '../Movies/Movies';
 
 function App() {
-  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-
-  function handleBurgerClick() {
-    setIsBurgerOpen(!isBurgerOpen);
-  };
 
   return (
     <div className="root">
       <div className="page">
-        <Header
-          isBurgerOpen={isBurgerOpen}
-          onBurgerClick={handleBurgerClick}
-        />
+        <Header />
+        <Movies />
+        <Footer />
         {/* <Main />
         <Footer /> */}
         {/* <Switch>
