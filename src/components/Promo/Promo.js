@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Promo.css';
 import '../../vendor/container.css';
 
@@ -30,16 +30,16 @@ function Promo() {
     <div className="promo">
       <div className="promo__container container">
         <div className="promo__header">
-          <Logo />
+          <Link exact to="/" className="promo__logo-link"><Logo /></Link>
           <nav className="promo__header-nav">
             <ul className="promo__header-nav-buttons">
               <li className="promo__header-nav-item">
-                <p className="promo__header-link">Регистрация</p>
-                {/* <Link to={props.headerLinkUrl} className="header__info-link button" onClick={props.onClick}>{props.btnText}</Link> */}
+                {/* <p className="promo__header-link">Регистрация</p> */}
+                <Link to="/signup" className="promo__header-link" >Регистрация</Link>
               </li>
               <li className="promo__header-nav-item">
-                <p className="promo__header-link">Войти</p>
-                {/* <Link to={props.headerLinkUrl} className="header__info-link button" onClick={props.onClick}>{props.btnText}</Link> */}
+                {/* <p className="promo__header-link">Войти</p> */}
+                <Link to="/signin" className="promo__header-link" >Войти</Link>
               </li>
             </ul>
           </nav>

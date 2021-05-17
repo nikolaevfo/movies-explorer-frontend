@@ -44,6 +44,9 @@
   font-size: 11px;
   line-height: 13px;
 }
+.profile__form-iput-text_invalid {
+  color: #EE3465;
+}
 .profile__form-iput-text:focus {
   outline: none;
 }
@@ -117,4 +120,25 @@
 }
 .profile__form-button-signout:hover::after {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .profile__container {
+    max-width: 410px;
+    width: calc(100% - 60px);
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  .profile__title{
+    margin-top: 70px;
+  }
+  .profile__form {
+    flex-grow: 1;
+  }
+  .profile__form-button-edit{
+    margin-top: auto;
+  }
+  .profile__form-button-signout {
+    margin-bottom: 40px;
+  }
 }

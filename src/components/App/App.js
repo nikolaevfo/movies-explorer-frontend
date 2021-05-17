@@ -11,6 +11,7 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Profile from '../Profile/Profile';
 import Preloader from '../Preloader/Preloader';
+import Register from '../Register/Register';
 
 import cardsSearch from '../../utils/cardsSearch';
 import cardsSaved from '../../utils/cardsSaved';
@@ -24,6 +25,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({
     name: "Федор",
     email: "nikolaevfo@gmail.com",
+    password: "111111"
   });
 
   function getMoviesCardsSearch() {
@@ -101,19 +103,16 @@ function App() {
               }
             </Route>
 
-            {/* <Route path="/">
-              <Switch>
-                <Route path="/profile">
-                  <Profile />
-                </Route>
-              </Switch>
-            </Route> */}
+            <Route exact path="/signup">
+              <Register
+                onUpdateUser={handleUpdateUser}
+              />
+            </Route>
+
             {/* <Route path="/signin">
               <Login />
             </Route>
-            <Route path="/signup">
-              <Register />
-            </Route> */}
+             */}
 
             <Route path="*">
               <PageNotFound />

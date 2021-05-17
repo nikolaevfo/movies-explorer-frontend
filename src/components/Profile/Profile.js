@@ -34,8 +34,10 @@ function Profile(props) {
         <form action="#" name="profileForm" className="profile__form" onSubmit={handleProfileSubmit}>
           <label className="profile__form-label"> Имя
             <input type="text" name="name" placeholder="Введите Ваше имя"
-            className="profile__form-iput-text" required
-            minLength="2" maxLength="40" onChange={handleChange}
+            className={`${!errors.name
+              ? `profile__form-iput-text`
+              : `profile__form-iput-text profile__form-iput-text_invalid`}`}
+            required minLength="2" maxLength="40" onChange={handleChange}
             value={values.name || ''}
           />
           </label>
@@ -43,8 +45,10 @@ function Profile(props) {
 
           <label className="profile__form-label">E-mail
             <input type="email" name="email" placeholder="Введите Ваш email"
-            className="profile__form-iput-text" required
-            minLength="2" maxLength="40" onChange={handleChange}
+            className={`${!errors.email
+              ? `profile__form-iput-text`
+              : `profile__form-iput-text profile__form-iput-text_invalid`}`}
+            required minLength="2" maxLength="40" onChange={handleChange}
             value={values.email || ''}
           />
           </label>

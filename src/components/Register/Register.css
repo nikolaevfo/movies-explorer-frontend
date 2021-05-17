@@ -1,0 +1,137 @@
+.register {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.register__container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 30px;
+}
+.register__logo-link{
+  margin-bottom: 40px;
+}
+.register__title{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0 0 40px;
+}
+.register__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+}
+.register__form-label{
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.register__form-iput-text {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: #F4F4F4;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+}
+.register__form-iput-text_invalid {
+  color: #EE3465;
+}
+.register__form-iput-text:focus {
+  outline: none;
+}
+.register__form-iput-text-error {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #EE3465;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.register__form-button-reg{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+
+  margin: 70px 0 15px;
+  background: #3456F3;
+  border: none;
+  padding: 15px;
+  border-radius: 3px;
+  width: 100%;
+  transition: 0.3s;
+}
+.register__form-button-reg:hover{
+  cursor: pointer;
+}
+.register__form-button-reg_invalid{
+  background: #A0A0A0;
+}
+.register__link-text{
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #A0A0A0;
+  text-align: center;
+  width: 100%;
+}
+.register__link{
+  color: #3456F3;
+  margin-left: 5px;
+  text-decoration: none;
+}
+.register__link:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .register__container {
+    max-width: 400px;
+    width: calc(100% - 60px);
+    padding-top: 50px;
+    flex-grow: 1;
+  }
+  .register__logo-link{
+    align-self: center;
+  }
+  .register__title{
+  }
+  .register__form {
+    flex-grow: 1;
+  }
+  .register__form-button-reg{
+    margin-top: auto;
+  }
+  .register__link-text {
+    margin-bottom: 30px;
+  }
+}

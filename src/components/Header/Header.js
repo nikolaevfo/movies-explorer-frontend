@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink  } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
 import '../../vendor/container.css';
 
@@ -17,11 +17,11 @@ function Header() {
       <div className={isBurgerOpen ? "header__content-background header__content-background_opened" : "header__content-background"}></div>
       <div className="header__container container">
         <div className="header__logo-wrapper">
-          <Logo />
+          <Link exact to="/" className="header__logo-link"><Logo /></Link>
         </div>
         <div className={isBurgerOpen ? "header__content header__content_opened" : "header__content"}>
           <div className="header__logo-menu-wrapper">
-            <Logo />
+            <Link exact to="/" className="header__logo-link"><Logo /></Link>
           </div>
           <nav className="header__nav">
             <ul className="header__items">
@@ -37,7 +37,7 @@ function Header() {
             </ul>
           </nav>
           <div className="header__accaunt-conteiner">
-            <p className="header__accaunt-text">Аккаунт</p>
+            <Link to="/profile" className="header__accaunt-text">Аккаунт</Link>
             <div className="header__accaunt-img"></div>
           </div>
         </div>
