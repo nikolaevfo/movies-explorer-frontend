@@ -18,6 +18,12 @@
   text-rendering: optimizeLegibility;
 }
 
+.root__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .page {
   display: flex;
   flex-direction: column;

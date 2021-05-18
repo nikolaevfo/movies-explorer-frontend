@@ -7,7 +7,7 @@ function SavedMovies(props) {
   return (
     <div className="saved-movies">
       <MoviesCardList
-        moviesCardsSearch={props.moviesCardsSearch}
+        moviesCards={props.moviesCardsSaved}
         isSaved={true}
       />
     </div>

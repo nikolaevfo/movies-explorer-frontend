@@ -13,9 +13,8 @@ function Promo() {
 
   React.useEffect(() => {
     let heightPromo = document.querySelector('.promo').clientHeight;
-    setPromoHeight(heightPromo)
-    console.log(promoHeight);
-  })
+    setPromoHeight(heightPromo);
+  }, [promoHeight])
 
   function handleMoreClick() {
     let scrollOptions = {
@@ -30,15 +29,13 @@ function Promo() {
     <div className="promo">
       <div className="promo__container container">
         <div className="promo__header">
-          <Link exact to="/" className="promo__logo-link"><Logo /></Link>
+          <Link to="/" className="promo__logo-link"><Logo /></Link>
           <nav className="promo__header-nav">
             <ul className="promo__header-nav-buttons">
               <li className="promo__header-nav-item">
-                {/* <p className="promo__header-link">Регистрация</p> */}
                 <Link to="/signup" className="promo__header-link" >Регистрация</Link>
               </li>
               <li className="promo__header-nav-item">
-                {/* <p className="promo__header-link">Войти</p> */}
                 <Link to="/signin" className="promo__header-link" >Войти</Link>
               </li>
             </ul>

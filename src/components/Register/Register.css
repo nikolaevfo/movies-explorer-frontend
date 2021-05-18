@@ -119,11 +119,10 @@
     width: calc(100% - 60px);
     padding-top: 50px;
     flex-grow: 1;
+    align-items: center;
   }
   .register__logo-link{
     align-self: center;
-  }
-  .register__title{
   }
   .register__form {
     flex-grow: 1;
@@ -133,5 +132,9 @@
   }
   .register__link-text {
     margin-bottom: 30px;
+  }
+  .register__link-text{
+    font-size: 12px;
+    line-height: 15px;
   }
 }

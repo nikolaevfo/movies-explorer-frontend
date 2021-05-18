@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 
@@ -12,6 +12,8 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import Profile from '../Profile/Profile';
 import Preloader from '../Preloader/Preloader';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
+import ErrorPopup from '../ErrorPopup/ErrorPopup';
 
 import cardsSearch from '../../utils/cardsSearch';
 import cardsSaved from '../../utils/cardsSaved';
@@ -27,6 +29,8 @@ function App() {
     email: "nikolaevfo@gmail.com",
     password: "111111"
   });
+
+  const history = useHistory();
 
   function getMoviesCardsSearch() {
     setIsLoading(true);
@@ -57,6 +61,32 @@ function App() {
      }, 1500);
   };
 
+  function handleLoginUser(userData) {
+    setIsLoading(true);
+    setTimeout(() => {
+      if (userData.email === currentUser.email && userData.password === currentUser.password) {
+        setIsLoading(false);
+        history.push('/movies');
+      } else {
+        setIsLoading(false);
+        setErrorPopupText('Введены некорректные данные');
+        openErrorPopup();
+      }
+    }, 1500);
+  }
+
+  // ErrorPopup
+  const [isErrorPopupOpen, setIsErrorPopupOpen] = React.useState(false);
+  const [errorPopupText, setErrorPopupText] = React.useState('');
+
+  function openErrorPopup() {
+    setIsErrorPopupOpen(true)
+  }
+  
+  function closeErrorPopup() {
+    setIsErrorPopupOpen(false)
+  }
+
   function handleClickSignout() {
   };
 
@@ -86,7 +116,7 @@ function App() {
               {isLoading
                 ? <Preloader />
                 : <SavedMovies
-                  moviesCardsSearch={moviesCardsSaved}
+                  moviesCardsSaved={moviesCardsSaved}
                 />
               }
               <Footer />
@@ -98,7 +128,7 @@ function App() {
                 ? <Preloader />
                 : <Profile
                   onUpdateUser={handleUpdateUser}
-                  handleClickSignout={handleClickSignout}
+                  onClickSignout={handleClickSignout}
                 />
               }
             </Route>
@@ -109,10 +139,14 @@ function App() {
               />
             </Route>
 
-            {/* <Route path="/signin">
-              <Login />
+            <Route path="/signin">
+              {isLoading
+                ? <Preloader />
+                : <Login
+                  onLoginUser={handleLoginUser}
+                />
+              }
             </Route>
-             */}
 
             <Route path="*">
               <PageNotFound />
@@ -120,6 +154,11 @@ function App() {
 
           </Switch>
         </div>
+        <ErrorPopup
+          isOpen={isErrorPopupOpen}
+          onClose={closeErrorPopup}
+          errorText={errorPopupText}
+        />
       </div>
     </CurrentUserContext.Provider>
   );

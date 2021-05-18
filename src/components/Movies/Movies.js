@@ -5,11 +5,12 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
 function Movies(props) {
+
   return (
     <div className="movies">
       <SearchForm />
       <MoviesCardList
-        moviesCardsSearch={props.moviesCardsSearch}
+        moviesCards={props.moviesCardsSearch}
         isSaved={false}
       />
     </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useFormWithValidation } from "../../hooks/useForm"
 import './Profile.css';
@@ -61,7 +60,7 @@ function Profile(props) {
               ? `profile__form-button-edit`
               : `profile__form-button-edit profile__form-button-edit_invalid`}`}>Редактировать</button>
         </form>
-        <button className="profile__form-button-signout" onClick={props.handleClickSignout}>Выйти из аккаунта</button>
+        <button className="profile__form-button-signout" onClick={props.onClickSignout}>Выйти из аккаунта</button>
       </div>
     </section >
   )

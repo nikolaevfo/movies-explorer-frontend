@@ -6,7 +6,7 @@ import './Register.css';
 import Logo from '../Logo/Logo';
 
 function Register(props) {
-  const { values, handleChange, setValues, errors, isValid, resetForm, setIsValid } = useFormWithValidation();
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   function handleRegisterSubmit(e) {
     e.preventDefault();
@@ -20,7 +20,7 @@ function Register(props) {
   return (
     <section className="register">
       <div className="register__container">
-        <Link exact to="/" className="register__logo-link"><Logo /></Link>
+        <Link to="/" className="register__logo-link"><Logo /></Link>
         <h2 className="register__title">Добро пожаловать!</h2>
         <form action="#" name="registerForm" className="register__form" onSubmit={handleRegisterSubmit}>
           <label className="register__form-label"> Имя
@@ -64,7 +64,7 @@ function Register(props) {
               : `register__form-button-reg register__form-button-reg_invalid`}`}>Зарегистрироваться</button>
         </form>
         <p className="register__link-text">Уже зарегистрированы?
-          <Link exact to="/signin" className="register__link">Войти</Link>
+          <Link to="/signin" className="register__link">Войти</Link>
         </p>
       </div>
     </section >

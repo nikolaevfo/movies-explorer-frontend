@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './PageNotFound.css';
 import '../../vendor/container.css';
 

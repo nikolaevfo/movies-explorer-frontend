@@ -7,7 +7,8 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function MoviesCardList(props) {
 
   const [quantityCards, setQuantityCards] = useState(6)
-  let cardsArray = props.moviesCardsSearch.slice(0, quantityCards)
+  let cardsArray = props.moviesCards.slice(0, quantityCards);
+
 
   function handleClickButtonMore() {
     setQuantityCards(quantityCards + 6)
@@ -29,7 +30,7 @@ function MoviesCardList(props) {
           </>
         </div>
         <>
-          {props.moviesCardsSearch.length < 6
+          { !props.moviesCards || props.moviesCards.length < 6
           ? <></>
           : <button className="movies-card-list__button-more" onClick={handleClickButtonMore}>Еще</button>}
         </>

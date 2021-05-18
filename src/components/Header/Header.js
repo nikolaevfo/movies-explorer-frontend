@@ -17,16 +17,16 @@ function Header() {
       <div className={isBurgerOpen ? "header__content-background header__content-background_opened" : "header__content-background"}></div>
       <div className="header__container container">
         <div className="header__logo-wrapper">
-          <Link exact to="/" className="header__logo-link"><Logo /></Link>
+          <Link to="/" className="header__logo-link"><Logo /></Link>
         </div>
         <div className={isBurgerOpen ? "header__content header__content_opened" : "header__content"}>
           <div className="header__logo-menu-wrapper">
-            <Link exact to="/" className="header__logo-link"><Logo /></Link>
+            <Link to="/" className="header__logo-link"><Logo /></Link>
           </div>
           <nav className="header__nav">
             <ul className="header__items">
               <li className="header__item">
-                <NavLink exact to="/" className="header__link" activeClassName="header__link_active">Главная</NavLink>
+                <NavLink to="/" className="header__link" activeClassName="header__link_active">Главная</NavLink>
               </li>
               <li className="header__item">
                 <NavLink to="/movies" className="header__link" activeClassName="header__link_active">Фильмы</NavLink>

@@ -43,6 +43,7 @@
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
+  margin-left: 5px;
 }
 .profile__form-iput-text_invalid {
   color: #EE3465;
