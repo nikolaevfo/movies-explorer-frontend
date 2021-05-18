@@ -90,6 +90,7 @@
 }
 .login__form-button-reg:hover{
   cursor: pointer;
+  opacity: 0.8;
 }
 .login__form-button-reg_invalid{
   background: #A0A0A0;

@@ -8,7 +8,7 @@ function SearchForm() {
     <section className="search-form">
       <div className="search-form__container container">
         <form action="" className="search-form__form" name="searchForm">
-          <input type="text" className="search-form__input-text" placeholder="Фильм" />
+          <input type="text" className="search-form__input-text" placeholder="Фильм" required/>
           <div className="searh-form__button-wrapper">
             <button className="search-form__button-submit"></button>
           </div>

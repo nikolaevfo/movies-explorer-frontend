@@ -103,6 +103,7 @@
 .header__accaunt-text {
   margin: 0 13px 0 0;
   transition: 0.3s;
+  position: relative;
 
   font-weight: 500;
   font-size: 14px;
@@ -226,6 +227,28 @@
   .header__link {
     font-size: 18px;
     line-height: 22px;
+    font-weight: 500;
+  }
+  .header__link_active::after{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+  }
+  .header__accaunt-text_active::after{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    position: relative;
+    z-index: 10;
+    transition: 0.3s;
+    opacity: 1;
   }
   .header__accaunt-conteiner{
     margin-top: auto;

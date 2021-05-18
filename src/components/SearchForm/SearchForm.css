@@ -42,10 +42,12 @@
   background: #3456F3 url('../../images/search-btn-arrow.svg') center/5px 12px no-repeat;
   border-radius: 50%;
   border: none; 
+  transition: 0.3s;
 }
 .search-form__button-submit:hover {
   cursor: pointer;
-}   
+  opacity: 0.8;
+}
 
 .search-form__checkbox-label {
   position: relative;

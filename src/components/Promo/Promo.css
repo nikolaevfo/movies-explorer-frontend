@@ -1,6 +1,5 @@
 .promo {
   /* width: 100%; */
-  min-height: 100vh;
   background: #DDDEE3;
   display: flex;
   justify-content: center;
@@ -28,6 +27,7 @@
   list-style: none;
 }
 
+
 .promo__header-link {
   margin: 0 0 0 10px;
   background: none;
@@ -36,17 +36,24 @@
   color: #000;
   border-radius: 3px;
   transition: 0.3s;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
 
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
 }
 
-.promo__header-link:hover {
-  cursor: pointer;
+.promo__header-nav-item:last-child .promo__header-link {
   background: #3456F3;
   color: #fff;
+}
+.promo__header-link:hover {
+  cursor: pointer;
+  text-decoration-color: #000;
+}
+.promo__header-nav-item:last-child .promo__header-link:hover {
+  text-decoration-color: #fff;
 }
 
 .promo__content {
@@ -76,7 +83,7 @@
 }
 .promo__info-text {
   max-width: 310px;
-  margin: 0 0 20px;
+  margin: 0 0 140px;
   font-weight: normal;
   font-size: 13px;
   line-height: 16px;

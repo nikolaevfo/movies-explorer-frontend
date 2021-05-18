@@ -25,6 +25,7 @@
 .movies-card-list__button-more:hover{
   background: #cacaca;
   cursor: pointer;
+  /* opacity: 0.8; */
 }
 
 @media (max-width: 1023px) {

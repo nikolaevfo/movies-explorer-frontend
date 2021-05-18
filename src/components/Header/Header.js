@@ -26,7 +26,7 @@ function Header() {
           <nav className="header__nav">
             <ul className="header__items">
               <li className="header__item">
-                <NavLink to="/" className="header__link" activeClassName="header__link_active">Главная</NavLink>
+                <NavLink exact to="/" className="header__link" activeClassName="header__link_active">Главная</NavLink>
               </li>
               <li className="header__item">
                 <NavLink to="/movies" className="header__link" activeClassName="header__link_active">Фильмы</NavLink>
@@ -37,7 +37,7 @@ function Header() {
             </ul>
           </nav>
           <div className="header__accaunt-conteiner">
-            <Link to="/profile" className="header__accaunt-text">Аккаунт</Link>
+            <NavLink to="/profile" className="header__accaunt-text" activeClassName="header__accaunt-text_active">Аккаунт</NavLink>
             <div className="header__accaunt-img"></div>
           </div>
         </div>

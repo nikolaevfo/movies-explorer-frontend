@@ -8,7 +8,7 @@ function MoviesCard(props) {
 
   return (
     <article className="movies-card" id={props.id}>
-      <img src={props.card.image[props.card.imgName]} alt="" className="movies-card__img" />
+      <img src={props.card.image[props.card.imgName]} alt="Фото обложки" className="movies-card__img" />
       <div className="movies-card__title-row">
         <h2 className="movies-card__title">{props.card.nameRU}</h2>
         <button className={props.isSaved ? 'movies-card__like-button movies-card__like-button_saved' : 'movies-card__like-button' }></button>
