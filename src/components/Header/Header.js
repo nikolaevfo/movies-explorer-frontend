@@ -26,18 +26,18 @@ function Header() {
           <nav className="header__nav">
             <ul className="header__items">
               <li className="header__item">
-                <NavLink exact to="/" className="header__link" activeClassName="header__link_active">Главная</NavLink>
+                <NavLink exact to="/" className="header__link" activeClassName="header__link_active" onClick={handleBurgerClick}>Главная</NavLink>
               </li>
               <li className="header__item">
-                <NavLink to="/movies" className="header__link" activeClassName="header__link_active">Фильмы</NavLink>
+                <NavLink to="/movies" className="header__link" activeClassName="header__link_active" onClick={handleBurgerClick}>Фильмы</NavLink>
               </li>
               <li className="header__item">
-                <NavLink to="/saved-movies" className="header__link" activeClassName="header__link_active">Сохранённые фильмы</NavLink>
+                <NavLink to="/saved-movies" className="header__link" activeClassName="header__link_active" onClick={handleBurgerClick}>Сохранённые фильмы</NavLink>
               </li>
             </ul>
           </nav>
           <div className="header__accaunt-conteiner">
-            <NavLink to="/profile" className="header__accaunt-text" activeClassName="header__accaunt-text_active">Аккаунт</NavLink>
+            <NavLink to="/profile" className="header__accaunt-text" activeClassName="header__accaunt-text_active" onClick={handleBurgerClick}>Аккаунт</NavLink>
             <div className="header__accaunt-img"></div>
           </div>
         </div>
