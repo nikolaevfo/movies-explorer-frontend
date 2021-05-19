@@ -1,0 +1,65 @@
+.error-popup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  z-index: 20;
+}
+.error-popup_opened{
+  opacity: 1;
+  visibility: visible;
+}
+.error-popup__container{
+  position: relative;
+  max-width: 430px;
+  width: calc(100% - 80px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  background: #fff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 36px;
+  box-sizing: border-box;
+}
+.error-popup__button-cross{
+  transition: 0.2s;
+  display: block;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: -40px;
+  right: -40px;
+  background: url("../../images/error-cross.svg") center/contain no-repeat;
+}
+.error-popup__button-cross:focus {
+  outline: none;
+}
+.error-popup__button-cross:hover {
+  opacity: 0.6;
+}
+.error-popup__title{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000;
+  margin-bottom: 30px;
+}
+.error-popup__text{
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000;
+  margin-bottom: 30px;  
+}

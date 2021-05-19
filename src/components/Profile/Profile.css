@@ -1,0 +1,145 @@
+.profile {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile__container {
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile__title{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 90px;
+}
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+}
+.profile__form-label{
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+
+  width: 100%;
+  display: flex;
+}
+.profile__form-iput-text {
+  flex-grow: 1;
+  text-align: right;
+  border: none;
+  background: none;
+
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  margin-left: 5px;
+}
+.profile__form-iput-text_invalid {
+  color: #EE3465;
+}
+.profile__form-iput-text:focus {
+  outline: none;
+}
+.profile__form-iput-text-error {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #EE3465;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+}
+.profile__form-iput-text-error:first-of-type {
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 10px;
+}
+.profile__form-button-edit{
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+
+  margin: 190px 0 15px;
+  background: none;
+  border: none;
+  padding: 0;
+  align-self: center;
+}
+.profile__form-button-edit:hover{
+  cursor: pointer;
+}
+.profile__form-button-edit::after {
+  display: block;
+  position: relative;
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: #000;
+  transition: 0.3s;
+  opacity: 0;
+}
+.profile__form-button-edit:hover::after {
+  opacity: 1;
+}
+.profile__form-button-edit_invalid{
+  color: #A0A0A0;
+}
+.profile__form-button-signout {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #EE3465;
+}
+.profile__form-button-signout:hover {
+  cursor: pointer;
+}
+.profile__form-button-signout::after {
+  display: block;
+  position: relative;
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: #EE3465;
+  transition: 0.3s;
+  opacity: 0;
+}
+.profile__form-button-signout:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .profile__container {
+    max-width: 410px;
+    width: calc(100% - 60px);
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  .profile__title{
+    margin-top: 70px;
+  }
+  .profile__form {
+    flex-grow: 1;
+  }
+  .profile__form-button-edit{
+    margin-top: auto;
+  }
+  .profile__form-button-signout {
+    margin-bottom: 40px;
+  }
+}

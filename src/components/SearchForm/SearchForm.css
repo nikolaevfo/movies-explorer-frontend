@@ -1,0 +1,133 @@
+.search-form {
+  width: 100%;
+  padding-bottom: 10px;
+}
+.search-form__container{
+  border-bottom: 1px solid #E8E8E8;
+}
+.search-form__form {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 74px;
+  margin: 70px 0;
+  background: #F4F4F4;
+  border-radius: 9px;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form__input-text {
+  background: #F4F4F4 url('../../images/lupa.svg') left 0px/20px 20px no-repeat;
+  border: none;
+  padding: 0 0 0 45px;
+  flex-grow: 1;
+  margin: 0 30px 0 0;
+
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  outline: none;
+}
+
+.searh-form__button-wrapper {
+  padding-right: 30px;
+  border-right: 1px solid #E8E8E8;
+  margin-right: 30px;
+}
+.search-form__button-submit {
+  width: 34px;
+  height: 34px;
+  background: #3456F3 url('../../images/search-btn-arrow.svg') center/5px 12px no-repeat;
+  border-radius: 50%;
+  border: none; 
+  transition: 0.3s;
+}
+.search-form__button-submit:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.search-form__checkbox-label {
+  position: relative;
+  padding-left: 50px;
+
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+}
+.search-form__checkbox-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.search-form__checkbox-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+  width: 36px;
+  height: 20px;
+}
+.search-form__checkbox-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+.search-form__checkbox-input:checked + .search-form__checkbox-slider {
+  background-color: #2BE080;
+}
+
+.search-form__checkbox-input:focus + .search-form__checkbox-slider {
+  box-shadow: 0 0 3px #2BE080;
+}
+
+.search-form__checkbox-input:checked + .search-form__checkbox-slider:before {
+  transform: translateX(16px);
+}
+
+@media (max-width: 1023px) {
+  .searh-form__button-wrapper {
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-form__form {
+   padding: 20px;
+   margin: 70px 0 115px;
+  }
+  .search-form__input-text {
+    background: #F4F4F4;
+    padding: 0;
+    margin: 0 10px 0 0;
+
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .searh-form__button-wrapper {
+    margin: 0;
+    padding: 0;
+    border-right: none;
+  }
+  .search-form__checkbox-label {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
