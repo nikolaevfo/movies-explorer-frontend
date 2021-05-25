@@ -11,7 +11,7 @@ function MoviesCard({ id, card, isSaved }) {
   return (
     <article className="movies-card" id={id}>
       <img
-        // src={`https://api.nomoreparties.co${card.image.url}]`}
+        // src={`https://api.nomoreparties.co/${card.image.url}]`}
         src="/"
         // alt="p"
         alt={card.image.name}

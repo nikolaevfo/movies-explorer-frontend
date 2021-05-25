@@ -14,7 +14,8 @@ import Preloader from "../Preloader/Preloader";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import ErrorPopup from "../ErrorPopup/ErrorPopup";
-import MoviesApi from "../../utils/MoviesApi";
+import moviesApi from "../../utils/MoviesApi";
+import mainApi from "../../utils/MainApi";
 
 // import cardsSearch from "../../utils/cardsSearch";
 // import cardsSaved from "../../utils/cardsSaved";
@@ -34,36 +35,21 @@ function App() {
 
   const history = useHistory();
 
-  // function getMoviesCardsSearch() {
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     setMoviesCardsSearch(cardsSearch);
-  //     setIsLoading(false);
-  //   }, 1500);
-  // }
-
   const [isCardsError, setIsCardsError] = useState("");
-  // React.useEffect(() => {
-  //   setIsLoading(true);
-  //   MoviesApi.getFilmsList()
-  //     .then((initialCards) => {
-  //       if (initialCards) {
-  //         setMoviesSourceList(initialCards);
-  //         setIsLoading(false);
-  //       } else {
-  //         setIsCardsError("Ничего не найдено");
-  //       }
-  //     })
-  //     .catch(() =>
-  //       setIsCardsError(
-  //         "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
-  //       )
-  //     );
-  // }, []);
 
+  // получение сохранненых фильмов
+  React.useEffect(() => {
+    const savedData = JSON.parse(localStorage.sourceFilmsList);
+    if (savedData) {
+      setMoviesCardsSearchList(savedData);
+    }
+  }, []);
+
+  // обработчик нажатия на поиск
   function handleSubmitSearchForm() {
     setIsLoading(true);
-    MoviesApi.getFilmsList()
+    moviesApi
+      .getFilmsList()
       .then((initialCards) => {
         if (initialCards.length > 1) {
           localStorage.clear();
@@ -90,48 +76,54 @@ function App() {
   // провереям, заполнено ли локальное хранилище
   React.useEffect(() => {
     const savedData = JSON.parse(localStorage.sourceFilmsList);
-    console.log(savedData[0]);
     if (savedData) {
       setMoviesCardsSearchList(savedData);
     }
   }, []);
 
-  // function getMoviesCardsSaved() {
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     setMoviesCardsSaved(cardsSaved);
-  //     setIsLoading(false);
-  //   }, 5);
-  // }
-
-  // React.useEffect(() => {
-  //   getMoviesCardsSearch();
-  //   getMoviesCardsSaved();
-  // }, []);
-
-  function handleUpdateUser(userData) {
+  // регистрация
+  function handleRegister(userData) {
     setIsLoading(true);
-    setTimeout(() => {
-      setCurrentUser(userData);
-      setIsLoading(false);
-    }, 5);
+    return mainApi
+      .register(userData)
+      .then((res) => {
+        if (res.user) {
+          setIsLoading(false);
+          history.push("/signin");
+        } else {
+          setIsLoading(false);
+          setErrorPopupText("Ошибка при регистрации");
+          openErrorPopup();
+        }
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setErrorPopupText("Ошибка при регистрации");
+        openErrorPopup();
+      });
   }
 
-  function handleLoginUser(userData) {
+  // вход пользователя
+  function handleLoggedIn(userData) {
     setIsLoading(true);
-    setTimeout(() => {
-      if (
-        userData.email === currentUser.email &&
-        userData.password === currentUser.password
-      ) {
+    return mainApi
+      .login(userData)
+      .then((res) => {
+        console.log(res);
+        if (res.user) {
+          setIsLoading(false);
+          history.push("/movies");
+        } else {
+          setIsLoading(false);
+          setErrorPopupText("Ошибка при регистрации");
+          openErrorPopup();
+        }
+      })
+      .catch(() => {
         setIsLoading(false);
-        history.push("/movies");
-      } else {
-        setIsLoading(false);
-        setErrorPopupText("Введены некорректные данные");
+        setErrorPopupText("Ошибка при регистрации");
         openErrorPopup();
-      }
-    }, 5);
+      });
   }
 
   // ErrorPopup
@@ -146,7 +138,9 @@ function App() {
     setIsErrorPopupOpen(false);
   }
 
-  function handleClickSignout() {}
+  function handleClickSignout() {
+    localStorage.clear();
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -184,21 +178,21 @@ function App() {
                 <Preloader />
               ) : (
                 <Profile
-                  onUpdateUser={handleUpdateUser}
+                  // onUpdateUser={handleUpdateUser}
                   onClickSignout={handleClickSignout}
                 />
               )}
             </Route>
 
             <Route exact path="/signup">
-              <Register onUpdateUser={handleUpdateUser} />
+              <Register onRegister={handleRegister} />
             </Route>
 
-            <Route path="/signin">
+            <Route exact path="/signin">
               {isLoading ? (
                 <Preloader />
               ) : (
-                <Login onLoginUser={handleLoginUser} />
+                <Login onLoggedIn={handleLoggedIn} />
               )}
             </Route>
 

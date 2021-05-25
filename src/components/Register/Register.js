@@ -5,16 +5,21 @@ import "./Register.css";
 
 import Logo from "../Logo/Logo";
 
-function Register(props) {
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+function Register({ onRegister }) {
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormWithValidation();
 
   function handleRegisterSubmit(e) {
     e.preventDefault();
-    props.onUpdateUser({
+    if (!values.name || !values.email || !values.password) {
+      return;
+    }
+    onRegister({
       name: values.name,
       email: values.email,
       password: values.password,
     });
+    resetForm();
   }
 
   return (

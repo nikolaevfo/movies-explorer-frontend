@@ -41,7 +41,6 @@ function MoviesCardList({ moviesCards, isSaved }) {
   function handleWindowResize() {
     setTimeout(() => {
       setWindowWidth(document.documentElement.clientWidth);
-      console.log(`after 1000 ${document.documentElement.clientWidth}`);
     }, 1000);
   }
 
