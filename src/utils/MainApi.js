@@ -27,6 +27,33 @@ class MainApi {
       body: JSON.stringify(userData),
     }).then(this._handleOriginalResponse);
   }
+
+  updateUser(userData) {
+    return fetch(`https://api.nikolaevfo.movies.nomoredomains.icu/users/me`, {
+      method: "PATCH",
+      credentials: "include",
+      headers: this._headers,
+      body: JSON.stringify(userData),
+    }).then(this._handleOriginalResponse);
+  }
+
+  signout(userData) {
+    return fetch(`https://api.nikolaevfo.movies.nomoredomains.icu/signout`, {
+      method: "POST",
+      credentials: "include",
+      headers: this._headers,
+      body: JSON.stringify(userData),
+    }).then(this._handleOriginalResponse);
+  }
+
+  checkToken(userData) {
+    return fetch(`https://api.nikolaevfo.movies.nomoredomains.icu/signout`, {
+      method: "POST",
+      credentials: "include",
+      headers: this._headers,
+      body: JSON.stringify(userData),
+    }).then(this._handleOriginalResponse);
+  }
 }
 
 const mainApi = new MainApi({

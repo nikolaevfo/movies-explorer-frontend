@@ -14,11 +14,9 @@ import Preloader from "../Preloader/Preloader";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import ErrorPopup from "../ErrorPopup/ErrorPopup";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import moviesApi from "../../utils/MoviesApi";
 import mainApi from "../../utils/MainApi";
-
-// import cardsSearch from "../../utils/cardsSearch";
-// import cardsSaved from "../../utils/cardsSaved";
 
 function App() {
   const [moviesSourceList, setMoviesSourceList] = useState([]);
@@ -27,23 +25,19 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [currentUser, setCurrentUser] = useState({
-    name: "Федор",
-    email: "nikolaevfo@gmail.com",
-    password: "111111",
-  });
+  const [currentUser, setCurrentUser] = useState([]);
 
   const history = useHistory();
 
   const [isCardsError, setIsCardsError] = useState("");
 
   // получение сохранненых фильмов
-  React.useEffect(() => {
-    const savedData = JSON.parse(localStorage.sourceFilmsList);
-    if (savedData) {
-      setMoviesCardsSearchList(savedData);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const savedData = JSON.parse(localStorage.sourceFilmsList);
+  //   if (savedData) {
+  //     setMoviesCardsSearchList(savedData);
+  //   }
+  // }, []);
 
   // обработчик нажатия на поиск
   function handleSubmitSearchForm() {
@@ -75,10 +69,14 @@ function App() {
 
   // провереям, заполнено ли локальное хранилище
   React.useEffect(() => {
-    const savedData = JSON.parse(localStorage.sourceFilmsList);
-    if (savedData) {
-      setMoviesCardsSearchList(savedData);
+    if (localStorage.sourceFilmsList) {
+      setMoviesCardsSearchList(JSON.parse(localStorage.sourceFilmsList));
     }
+    // const savedData = JSON.parse(localStorage.sourceFilmsList);
+    // console.log(savedData);
+    // if (savedData) {
+    //   setMoviesCardsSearchList(savedData);
+    // }
   }, []);
 
   // регистрация
@@ -103,25 +101,73 @@ function App() {
       });
   }
 
-  // вход пользователя
+  // login вход пользователя
+  const [loggedIn, setLoggedIn] = useState(false);
   function handleLoggedIn(userData) {
     setIsLoading(true);
     return mainApi
       .login(userData)
       .then((res) => {
-        console.log(res);
         if (res.user) {
           setIsLoading(false);
+          setCurrentUser(res.user);
+          setLoggedIn(true);
           history.push("/movies");
         } else {
           setIsLoading(false);
-          setErrorPopupText("Ошибка при регистрации");
+          setErrorPopupText("Ошибка при входе");
           openErrorPopup();
         }
       })
       .catch(() => {
         setIsLoading(false);
-        setErrorPopupText("Ошибка при регистрации");
+        setErrorPopupText("Ошибка при входе");
+        openErrorPopup();
+      });
+  }
+
+  // profile коррекция данных пользователя
+  function handleUpdateUser(userData) {
+    setIsLoading(true);
+    return mainApi
+      .updateUser(userData)
+      .then((res) => {
+        if (res.name) {
+          setIsLoading(false);
+          setCurrentUser({ name: res.name, email: res.email });
+        } else {
+          setIsLoading(false);
+          setErrorPopupText("Ошибка при изменении данных");
+          openErrorPopup();
+        }
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setErrorPopupText("Ошибка при изменении данных");
+        openErrorPopup();
+      });
+  }
+
+  function handleClickSignout() {
+    localStorage.clear();
+    setIsLoading(true);
+    return mainApi
+      .signout()
+      .then((res) => {
+        if (res.message) {
+          setIsLoading(false);
+          setCurrentUser([]);
+          setLoggedIn(false);
+          history.push("/signin");
+        } else {
+          setIsLoading(false);
+          setErrorPopupText("Ошибка");
+          openErrorPopup();
+        }
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setErrorPopupText("Ошибка");
         openErrorPopup();
       });
   }
@@ -136,11 +182,12 @@ function App() {
 
   function closeErrorPopup() {
     setIsErrorPopupOpen(false);
+    setErrorPopupText("");
   }
 
-  function handleClickSignout() {
-    localStorage.clear();
-  }
+  React.useEffect(() => {
+    console.log(loggedIn);
+  }, [history, loggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -148,12 +195,15 @@ function App() {
         <div className="page">
           <Switch>
             <Route exact path="/">
-              <Main />
+              <Main isloggedIn={loggedIn} />
             </Route>
 
             <Route exact path="/movies">
               <Header />
-              <Movies
+              <ProtectedRoute
+                path="/movies"
+                loggedIn={loggedIn}
+                component={Movies}
                 moviesCardsSearchList={moviesCardsSearchList}
                 onSubmitSearchForm={handleSubmitSearchForm}
                 isCardsError={isCardsError}
@@ -164,11 +214,14 @@ function App() {
 
             <Route exact path="/saved-movies">
               <Header />
-              {isLoading ? (
-                <Preloader />
-              ) : (
-                <SavedMovies moviesCardsSaved={moviesCardsSaved} />
-              )}
+              <ProtectedRoute
+                path="/saved-movies"
+                loggedIn={loggedIn}
+                component={SavedMovies}
+                moviesCardsSaved={moviesCardsSaved}
+                isCardsError={isCardsError}
+                isLoading={isLoading}
+              />
               <Footer />
             </Route>
 
@@ -177,8 +230,11 @@ function App() {
               {isLoading ? (
                 <Preloader />
               ) : (
-                <Profile
-                  // onUpdateUser={handleUpdateUser}
+                <ProtectedRoute
+                  path="/profile"
+                  loggedIn={loggedIn}
+                  component={Profile}
+                  onUpdateUser={handleUpdateUser}
                   onClickSignout={handleClickSignout}
                 />
               )}
