@@ -9,8 +9,6 @@ function MoviesCard({ id, card, moviesCardsSaved, onLikeClick }) {
   let isCardsLiked = false;
   if (moviesCardsSaved) {
     moviesCardsSaved.forEach((element) => {
-      // console.log(`element ${element.movieId}`);
-      // console.log(`card ${card.movieId}`);
       if (element.movieId.toString() === card.movieId.toString()) {
         isCardsLiked = true;
       }
@@ -19,20 +17,8 @@ function MoviesCard({ id, card, moviesCardsSaved, onLikeClick }) {
     isCardsLiked = true;
   }
 
-  // let imgUrl = "";
-  // if (parent === "Movies") {
-  //   imgUrl = `https://api.nomoreparties.co${card.image.url}`;
-  // } else {
-  //   imgUrl = card.image;
-  // }
-
   function handleLikeClick() {
     onLikeClick(card);
-    // if (isCardsLiked) {
-    //   onMovieDel(card._id);
-    // } else {
-    //   onMovieAdd(card);
-    // }
   }
   return (
     <article className="movies-card" id={id}>

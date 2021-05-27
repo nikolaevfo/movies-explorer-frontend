@@ -85,6 +85,7 @@ function App() {
   // загрузка сохраненных карточек
   React.useEffect(() => {
     if (loggedIn) {
+      setIsCardsError(``);
       mainApi
         .getSavedMovies()
         .then((initialCards) => {
