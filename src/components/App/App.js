@@ -215,7 +215,7 @@ function App() {
           setIsLoading(false);
           setCurrentUser([]);
           setLoggedIn(false);
-          history.push("/signin");
+          history.push("/");
         } else {
           setIsLoading(false);
           setErrorPopupText("Ошибка");
