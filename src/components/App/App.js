@@ -18,6 +18,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import moviesApi from "../../utils/MoviesApi";
 import mainApi from "../../utils/MainApi";
 import filterFlims from "../../hooks/filterFilms";
+import refactorMovieCardToMongo from "../../hooks/refactorMovieCardToMongo";
 
 function App() {
   const [moviesCardsSearchList, setMoviesCardsSearchList] = useState([]);
@@ -33,23 +34,6 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(true);
 
-  // функция преобразователь карточки в формать Mongo
-  function refactorMovieCardToMongo(initialCard) {
-    return {
-      country: initialCard.country || "",
-      director: initialCard.director || "",
-      duration: initialCard.duration || null,
-      year: initialCard.year || "",
-      description: initialCard.description || "",
-      image: `https://api.nomoreparties.co${initialCard.image.url}`,
-      trailer: initialCard.trailerLink || "",
-      nameRU: initialCard.nameRU || "",
-      nameEN: initialCard.nameEN || "",
-      thumbnail: `https://api.nomoreparties.co${initialCard.image.formats.thumbnail.url}`,
-      movieId: initialCard.id || null,
-    };
-  }
-
   // обработчик нажатия на поиск по общему списку
   function handleSubmitSearchFormMovies(searchData) {
     setIsLoading(true);
@@ -59,17 +43,21 @@ function App() {
         if (initialCards.length > 1) {
           localStorage.clear();
           let searchList = filterFlims(initialCards, searchData);
+
           let searchListConvertedToMongo = [];
           searchList.forEach((item) => {
             searchListConvertedToMongo.push(refactorMovieCardToMongo(item));
           });
           setMoviesCardsSearchList(searchListConvertedToMongo);
+
           localStorage.setItem(
             "searchList",
             JSON.stringify(searchListConvertedToMongo)
           );
-
           setIsLoading(false);
+          if (searchListConvertedToMongo.length === 0) {
+            setIsCardsError("Ничего не найдено");
+          }
         } else {
           setIsLoading(false);
           setIsCardsError("Ничего не найдено");
@@ -241,7 +229,7 @@ function App() {
       });
   }
 
-  // добавление фильма в сохраненные ============================================================
+  // добавление фильма в сохраненные
   function handleAddMovie(movieData) {
     setIsLoading(true);
     return mainApi
