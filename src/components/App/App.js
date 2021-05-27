@@ -70,6 +70,14 @@ function App() {
       );
   }
 
+  // обработчик нажатия на поиск по списку сохраненных
+  function handleSubmitSearchFormSavedMovies(searchData) {
+    const oldCards = moviesCardsSaved.slice();
+    let searchList = filterFlims(oldCards, searchData);
+
+    setMoviesCardsSaved(searchList);
+  }
+
   // загрузка сохраненных карточек
   React.useEffect(() => {
     if (loggedIn) {
@@ -85,15 +93,12 @@ function App() {
     }
   }, [loggedIn]);
 
-  // обработчик нажатия на поиск по списку сохраненных
-  function handleSubmitSearchFormSavedMovies() {}
-
   // провереям, заполнено ли локальное хранилище при обновлении страницы
   React.useEffect(() => {
     if (localStorage.getItem("searchList")) {
       setMoviesCardsSearchList(JSON.parse(localStorage.searchList));
     }
-  }, [loggedIn]);
+  }, [loggedIn, history]);
 
   // регистрация
   function handleRegister(userData) {
@@ -171,12 +176,10 @@ function App() {
             setCurrentUser(res);
             setLoggedIn(true);
           } else {
-            console.log("1");
             history.push("/");
           }
         })
         .catch(() => {
-          console.log("2");
           setLoggedIn(false);
           history.push("/");
         });
@@ -237,10 +240,7 @@ function App() {
     return mainApi
       .addMovie(movieData)
       .then((newCard) => {
-        console.log(newCard);
         if (newCard) {
-          console.log(moviesCardsSaved);
-          console.log(newCard);
           const newSavedMoviesList = moviesCardsSaved.slice();
           newSavedMoviesList.push(newCard);
           setMoviesCardsSaved(newSavedMoviesList);
@@ -274,22 +274,21 @@ function App() {
 
   // обработка клика на лайк
   function handleLikeClick(card) {
-    console.log("click");
     if (moviesCardsSaved) {
-      console.log("saved есть");
       let isLiked = false;
+      let likedCardId = undefined;
       moviesCardsSaved.forEach((element) => {
         if (element.movieId.toString() === card.movieId.toString()) {
           isLiked = true;
+          likedCardId = element._id;
         }
       });
       if (isLiked) {
-        handleDelMovie(card._id);
+        handleDelMovie(likedCardId);
       } else {
         handleAddMovie(card);
       }
     } else {
-      console.log("add card");
       handleAddMovie(card);
     }
   }

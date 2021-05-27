@@ -20,7 +20,6 @@ function filterFlims(filmsList, { search, isShort }) {
   let resultByIsShortInfo = [];
   if (isShort) {
     resultBySearchInfo.forEach((item) => {
-      console.log(item.duration);
       if (item.duration < 40) {
         resultByIsShortInfo.push(item);
       }
