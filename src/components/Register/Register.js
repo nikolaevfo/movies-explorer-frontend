@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useForm";
 import "./Register.css";
 
 import Logo from "../Logo/Logo";
 
-function Register({ onRegister }) {
+function Register({ onRegister, loggedIn }) {
   const { values, handleChange, errors, isValid, resetForm } =
     useFormWithValidation();
+  const history = useHistory();
+
+  React.useEffect(() => {
+    if (loggedIn) {
+      history.push("/");
+    }
+  });
 
   function handleRegisterSubmit(e) {
     e.preventDefault();

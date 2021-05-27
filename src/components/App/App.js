@@ -328,8 +328,6 @@ function App() {
                 isCardsError={isCardsError}
                 isLoading={isLoading}
                 onLikeClick={handleLikeClick}
-                // onMovieAdd={handleAddMovie}
-                // onMovieDel={handleDelMovie}
               />
               <Footer />
             </Route>
@@ -345,7 +343,6 @@ function App() {
                 isCardsError={isCardsError}
                 isLoading={isLoading}
                 onLikeClick={handleLikeClick}
-                // onMovieDel={handleDelMovie}
               />
               <Footer />
             </Route>
@@ -366,14 +363,14 @@ function App() {
             </Route>
 
             <Route exact path="/signup">
-              <Register onRegister={handleRegister} />
+              <Register onRegister={handleRegister} loggedIn={loggedIn} />
             </Route>
 
             <Route exact path="/signin">
               {isLoading ? (
                 <Preloader />
               ) : (
-                <Login onLoggedIn={handleLoggedIn} />
+                <Login onLoggedIn={handleLoggedIn} loggedIn={loggedIn} />
               )}
             </Route>
 
