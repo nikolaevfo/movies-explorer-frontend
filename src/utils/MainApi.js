@@ -46,13 +46,40 @@ class MainApi {
     }).then(this._handleOriginalResponse);
   }
 
-  checkToken(userData) {
-    return fetch(`https://api.nikolaevfo.movies.nomoredomains.icu/signout`, {
+  checkToken() {
+    return fetch(`https://api.nikolaevfo.movies.nomoredomains.icu/users/me`, {
+      method: "GET",
+      credentials: "include",
+      headers: this._headers,
+    }).then(this._handleOriginalResponse);
+  }
+
+  getSavedMovies() {
+    return fetch(`https://api.nikolaevfo.movies.nomoredomains.icu/movies`, {
+      method: "GET",
+      credentials: "include",
+      headers: this._headers,
+    }).then(this._handleOriginalResponse);
+  }
+
+  addMovie(movie) {
+    return fetch(`https://api.nikolaevfo.movies.nomoredomains.icu/movies`, {
       method: "POST",
       credentials: "include",
       headers: this._headers,
-      body: JSON.stringify(userData),
+      body: JSON.stringify(movie),
     }).then(this._handleOriginalResponse);
+  }
+
+  delMovie(id) {
+    return fetch(
+      `https://api.nikolaevfo.movies.nomoredomains.icu/movies/${id}`,
+      {
+        method: "DELETE",
+        credentials: "include",
+        headers: this._headers,
+      }
+    ).then(this._handleOriginalResponse);
   }
 }
 

@@ -6,11 +6,16 @@ import "./SearchForm.css";
 function SearchForm({ onSubmit }) {
   const { values, handleChange, resetForm, isValid } = useFormWithValidation();
   const [errorText, setErrorText] = useState("");
+  const [isShortFilm, setIsShortFilm] = useState(false);
 
   function handleSearchSubmit(e) {
     e.preventDefault();
-    onSubmit(values.search);
+    onSubmit({ search: values.search, isShort: isShortFilm });
     resetForm();
+  }
+
+  function handleClickCheckbox() {
+    setIsShortFilm(!isShortFilm);
   }
 
   function handleSearchClick() {
@@ -20,7 +25,7 @@ function SearchForm({ onSubmit }) {
   }
   React.useEffect(() => {
     setErrorText("");
-  }, [values]);
+  }, [values.search]);
   return (
     <section className="search-form">
       <div className="search-form__container container">
@@ -52,7 +57,12 @@ function SearchForm({ onSubmit }) {
           </div>
           <label className="search-form__checkbox-label">
             Короткометражки
-            <input type="checkbox" className="search-form__checkbox-input" />
+            <input
+              type="checkbox"
+              name="isShortFilm"
+              onChange={handleClickCheckbox}
+              className="search-form__checkbox-input"
+            />
             <span className="search-form__checkbox-slider"></span>
           </label>
         </form>

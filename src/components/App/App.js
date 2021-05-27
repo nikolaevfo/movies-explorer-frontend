@@ -17,9 +17,9 @@ import ErrorPopup from "../ErrorPopup/ErrorPopup";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import moviesApi from "../../utils/MoviesApi";
 import mainApi from "../../utils/MainApi";
+import filterFlims from "../../hooks/filterFilms";
 
 function App() {
-  const [moviesSourceList, setMoviesSourceList] = useState([]);
   const [moviesCardsSearchList, setMoviesCardsSearchList] = useState([]);
   const [moviesCardsSaved, setMoviesCardsSaved] = useState([]);
 
@@ -31,24 +31,44 @@ function App() {
 
   const [isCardsError, setIsCardsError] = useState("");
 
-  // получение сохранненых фильмов
-  // React.useEffect(() => {
-  //   const savedData = JSON.parse(localStorage.sourceFilmsList);
-  //   if (savedData) {
-  //     setMoviesCardsSearchList(savedData);
-  //   }
-  // }, []);
+  const [loggedIn, setLoggedIn] = useState(true);
 
-  // обработчик нажатия на поиск
-  function handleSubmitSearchForm() {
+  // функция преобразователь карточки в формать Mongo
+  function refactorMovieCardToMongo(initialCard) {
+    return {
+      country: initialCard.country || "",
+      director: initialCard.director || "",
+      duration: initialCard.duration || null,
+      year: initialCard.year || "",
+      description: initialCard.description || "",
+      image: `https://api.nomoreparties.co${initialCard.image.url}`,
+      trailer: initialCard.trailerLink || "",
+      nameRU: initialCard.nameRU || "",
+      nameEN: initialCard.nameEN || "",
+      thumbnail: `https://api.nomoreparties.co${initialCard.image.formats.thumbnail.url}`,
+      movieId: initialCard.id || null,
+    };
+  }
+
+  // обработчик нажатия на поиск по общему списку
+  function handleSubmitSearchFormMovies(searchData) {
     setIsLoading(true);
     moviesApi
       .getFilmsList()
       .then((initialCards) => {
         if (initialCards.length > 1) {
           localStorage.clear();
-          setMoviesSourceList(initialCards);
-          localStorage.setItem("sourceFilmsList", JSON.stringify(initialCards));
+          let searchList = filterFlims(initialCards, searchData);
+          let searchListConvertedToMongo = [];
+          searchList.forEach((item) => {
+            searchListConvertedToMongo.push(refactorMovieCardToMongo(item));
+          });
+          setMoviesCardsSearchList(searchListConvertedToMongo);
+          localStorage.setItem(
+            "searchList",
+            JSON.stringify(searchListConvertedToMongo)
+          );
+
           setIsLoading(false);
         } else {
           setIsLoading(false);
@@ -62,22 +82,29 @@ function App() {
       );
   }
 
-  // обновляем список найденных карточек при новом поиске
+  // загрузка сохраненных карточек
   React.useEffect(() => {
-    setMoviesCardsSearchList(moviesSourceList.slice());
-  }, [moviesSourceList]);
-
-  // провереям, заполнено ли локальное хранилище
-  React.useEffect(() => {
-    if (localStorage.sourceFilmsList) {
-      setMoviesCardsSearchList(JSON.parse(localStorage.sourceFilmsList));
+    if (loggedIn) {
+      mainApi
+        .getSavedMovies()
+        .then((initialCards) => {
+          setMoviesCardsSaved(initialCards);
+        })
+        .catch((err) =>
+          setIsCardsError(`Во время запроса произошла ошибка ${err}`)
+        );
     }
-    // const savedData = JSON.parse(localStorage.sourceFilmsList);
-    // console.log(savedData);
-    // if (savedData) {
-    //   setMoviesCardsSearchList(savedData);
-    // }
-  }, []);
+  }, [loggedIn]);
+
+  // обработчик нажатия на поиск по списку сохраненных
+  function handleSubmitSearchFormSavedMovies() {}
+
+  // провереям, заполнено ли локальное хранилище при обновлении страницы
+  React.useEffect(() => {
+    if (localStorage.getItem("searchList")) {
+      setMoviesCardsSearchList(JSON.parse(localStorage.searchList));
+    }
+  }, [loggedIn]);
 
   // регистрация
   function handleRegister(userData) {
@@ -102,7 +129,6 @@ function App() {
   }
 
   // login вход пользователя
-  const [loggedIn, setLoggedIn] = useState(false);
   function handleLoggedIn(userData) {
     setIsLoading(true);
     return mainApi
@@ -126,6 +152,46 @@ function App() {
       });
   }
 
+  // проверка авторизации при запуске
+  React.useEffect(() => {
+    mainApi
+      .checkToken()
+      .then((userData) => {
+        if (userData) {
+          setCurrentUser(userData);
+          setLoggedIn(true);
+        } else {
+          setLoggedIn(false);
+        }
+      })
+      .catch((err) => console.log("Ошибка авторизации", err));
+  }, []);
+
+  // проверка авторизации при переходе по history
+  React.useEffect(() => {
+    if (loggedIn) {
+      mainApi
+        .checkToken()
+        .then((res) => {
+          if (!res || res.statusCode === 400) {
+            throw new Error("Токен не передан или передан не в том формате");
+          } else if (res.statusCode === 401) {
+            throw new Error("Переданный токен некорректен");
+          }
+          if (res) {
+            setCurrentUser(res);
+            setLoggedIn(true);
+          } else {
+            history.push("/");
+          }
+        })
+        .catch(() => {
+          setLoggedIn(false);
+          history.push("/");
+        });
+    }
+  }, [history, loggedIn]);
+
   // profile коррекция данных пользователя
   function handleUpdateUser(userData) {
     setIsLoading(true);
@@ -148,8 +214,10 @@ function App() {
       });
   }
 
+  // выход
   function handleClickSignout() {
     localStorage.clear();
+    setMoviesCardsSearchList([]);
     setIsLoading(true);
     return mainApi
       .signout()
@@ -172,6 +240,69 @@ function App() {
       });
   }
 
+  // добавление фильма в сохраненные ============================================================
+  function handleAddMovie(movieData) {
+    setIsLoading(true);
+    return mainApi
+      .addMovie(movieData)
+      .then((newCard) => {
+        console.log(newCard);
+        if (newCard) {
+          console.log(moviesCardsSaved);
+          console.log(newCard);
+          const newSavedMoviesList = moviesCardsSaved.slice();
+          newSavedMoviesList.push(newCard);
+          setMoviesCardsSaved(newSavedMoviesList);
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
+          setErrorPopupText("Ошибка при добавлении фильма");
+          openErrorPopup();
+        }
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setErrorPopupText("Ошибка при добавлении фильма");
+        openErrorPopup();
+      });
+  }
+
+  // удаление фильма
+  function handleDelMovie(cardId) {
+    setIsLoading(true);
+    return mainApi
+      .delMovie(cardId)
+      .then(() => {
+        setIsLoading(false);
+        const newSavedCards = moviesCardsSaved.filter((c) => c._id !== cardId);
+        setMoviesCardsSaved(newSavedCards);
+      })
+      .catch((err) => console.log("Ошибка при удалении карточки", err))
+      .finally(() => setIsLoading(false));
+  }
+
+  // обработка клика на лайк
+  function handleLikeClick(card) {
+    console.log("click");
+    if (moviesCardsSaved) {
+      console.log("saved есть");
+      let isLiked = false;
+      moviesCardsSaved.forEach((element) => {
+        if (element.movieId.toString() === card.movieId.toString()) {
+          isLiked = true;
+        }
+      });
+      if (isLiked) {
+        handleDelMovie(card._id);
+      } else {
+        handleAddMovie(card);
+      }
+    } else {
+      console.log("add card");
+      handleAddMovie(card);
+    }
+  }
+
   // ErrorPopup
   const [isErrorPopupOpen, setIsErrorPopupOpen] = useState(false);
   const [errorPopupText, setErrorPopupText] = useState("");
@@ -185,9 +316,7 @@ function App() {
     setErrorPopupText("");
   }
 
-  React.useEffect(() => {
-    console.log(loggedIn);
-  }, [history, loggedIn]);
+  React.useEffect(() => {}, [history, loggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -205,9 +334,13 @@ function App() {
                 loggedIn={loggedIn}
                 component={Movies}
                 moviesCardsSearchList={moviesCardsSearchList}
-                onSubmitSearchForm={handleSubmitSearchForm}
+                moviesCardsSaved={moviesCardsSaved}
+                onSubmitSearchForm={handleSubmitSearchFormMovies}
                 isCardsError={isCardsError}
                 isLoading={isLoading}
+                onLikeClick={handleLikeClick}
+                // onMovieAdd={handleAddMovie}
+                // onMovieDel={handleDelMovie}
               />
               <Footer />
             </Route>
@@ -219,8 +352,11 @@ function App() {
                 loggedIn={loggedIn}
                 component={SavedMovies}
                 moviesCardsSaved={moviesCardsSaved}
+                onSubmitSearchForm={handleSubmitSearchFormSavedMovies}
                 isCardsError={isCardsError}
                 isLoading={isLoading}
+                onLikeClick={handleLikeClick}
+                // onMovieDel={handleDelMovie}
               />
               <Footer />
             </Route>

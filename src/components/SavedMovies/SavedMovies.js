@@ -5,10 +5,17 @@ import Preloader from "../Preloader/Preloader";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-function SavedMovies({ moviesCardsSaved, isCardsError, isLoading }) {
+function SavedMovies({
+  moviesCardsSaved,
+  isCardsError,
+  isLoading,
+  onSubmitSearchForm,
+  onLikeClick,
+  // onMovieDel,
+}) {
   return (
     <div className="saved-movies">
-      <SearchForm />
+      <SearchForm onSubmit={onSubmitSearchForm} />
       {isLoading ? (
         <Preloader />
       ) : (
@@ -21,7 +28,9 @@ function SavedMovies({ moviesCardsSaved, isCardsError, isLoading }) {
             </>
           ) : (
             <>
-              <MoviesCardList moviesCards={moviesCardsSaved} isSaved={true} />
+              <MoviesCardList
+                moviesCards={moviesCardsSaved}
+                onLikeClick={onLikeClick}
               />
             </>
           )}

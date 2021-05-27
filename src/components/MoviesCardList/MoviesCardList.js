@@ -4,76 +4,78 @@ import "../../vendor/container.css";
 
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList({ moviesCards, isSaved }) {
-  const [quantityScrollCards, setQuantityScrollCards] = useState(null);
-  const [quantityStartCards, setQuantityStartCards] = useState(null);
-  const [cardsVisibleArray, setCardsVisibleArray] = useState([]);
-  const [remaindCards, setRemaindCards] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(1280);
+function MoviesCardList({ moviesCards, moviesCardsSaved, onLikeClick }) {
+  // const [quantityScrollCards, setQuantityScrollCards] = useState(null);
+  // const [quantityStartCards, setQuantityStartCards] = useState(null);
+  // const [cardsVisibleArray, setCardsVisibleArray] = useState([]);
+  // const [remaindCards, setRemaindCards] = useState(0);
+  // const [windowWidth, setWindowWidth] = useState(1280);
 
-  React.useEffect(() => {
-    setWindowWidth(document.documentElement.clientWidth);
-  }, []);
+  // React.useEffect(() => {
+  //   setWindowWidth(document.documentElement.clientWidth);
+  // }, []);
 
-  React.useEffect(() => {
-    if (windowWidth >= 1024) {
-      setQuantityScrollCards(3);
-      setQuantityStartCards(12);
-    } else if (windowWidth < 1024 && windowWidth >= 768) {
-      setQuantityScrollCards(2);
-      setQuantityStartCards(8);
-    } else if (windowWidth <= 768) {
-      setQuantityScrollCards(2);
-      setQuantityStartCards(5);
-    }
-  }, [windowWidth]);
+  // React.useEffect(() => {
+  //   if (windowWidth >= 1024) {
+  //     setQuantityScrollCards(3);
+  //     setQuantityStartCards(12);
+  //   } else if (windowWidth < 1024 && windowWidth >= 768) {
+  //     setQuantityScrollCards(2);
+  //     setQuantityStartCards(8);
+  //   } else if (windowWidth <= 768) {
+  //     setQuantityScrollCards(2);
+  //     setQuantityStartCards(5);
+  //   }
+  // }, [windowWidth]);
 
-  React.useEffect(() => {
-    if (moviesCards) {
-      setCardsVisibleArray(moviesCards.slice(0, quantityStartCards));
-    }
-  }, [moviesCards, quantityScrollCards, quantityStartCards]);
+  // React.useEffect(() => {
+  //   if (moviesCards) {
+  //     setCardsVisibleArray(moviesCards.slice(0, quantityStartCards));
+  //   }
+  // }, [moviesCards, quantityScrollCards, quantityStartCards]);
 
-  React.useEffect(() => {
-    setRemaindCards(moviesCards.length - cardsVisibleArray.length);
-  }, [cardsVisibleArray.length, moviesCards.length]);
+  // React.useEffect(() => {
+  //   setRemaindCards(moviesCards.length - cardsVisibleArray.length);
+  // }, [cardsVisibleArray.length, moviesCards.length]);
 
-  function handleWindowResize() {
-    setTimeout(() => {
-      setWindowWidth(document.documentElement.clientWidth);
-    }, 1000);
-  }
+  // function handleWindowResize() {
+  //   setTimeout(() => {
+  //     setWindowWidth(document.documentElement.clientWidth);
+  //   }, 1000);
+  // }
 
-  React.useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
+  // React.useEffect(() => {
+  //   window.addEventListener("resize", handleWindowResize);
+  //   return () => {
+  //     window.removeEventListener("resize", handleWindowResize);
+  //   };
+  // }, []);
 
-  function handleClickButtonMore() {
-    setCardsVisibleArray(
-      moviesCards.slice(0, cardsVisibleArray.length + quantityScrollCards)
-    );
-  }
+  // function handleClickButtonMore() {
+  //   setCardsVisibleArray(
+  //     moviesCards.slice(0, cardsVisibleArray.length + quantityScrollCards)
+  //   );
+  // }
+  // console.log(moviesCards);
 
   return (
     <section className="movies-card-list">
       <div className="movies-card-list__container container">
         <div className="movies-card-list__items">
           <>
-            {cardsVisibleArray.map((item) => (
+            {moviesCards.map((item) => (
               <MoviesCard
-                key={item.id}
-                id={item.id}
+                key={item.movieId}
+                // id={item.movieId}
                 card={item}
-                // isSaved={isSaved}
+                onLikeClick={onLikeClick}
+                moviesCardsSaved={moviesCardsSaved}
               />
             ))}
           </>
         </div>
         <>
-          {!moviesCards || moviesCards.length < 6 || remaindCards < 1 ? (
+          {/* {!moviesCards || moviesCards.length < 6 || remaindCards < 1 ? (
             <></>
           ) : (
             <button
@@ -82,7 +84,7 @@ function MoviesCardList({ moviesCards, isSaved }) {
             >
               Еще
             </button>
-          )}
+          )} */}
         </>
       </div>
     </section>

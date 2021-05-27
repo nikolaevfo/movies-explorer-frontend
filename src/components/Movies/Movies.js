@@ -10,6 +10,10 @@ function Movies({
   onSubmitSearchForm,
   isCardsError,
   isLoading,
+  moviesCardsSaved,
+  onLikeClick,
+  // onMovieAdd,
+  // onMovieDel,
 }) {
   return (
     <div className="movies">
@@ -29,7 +33,8 @@ function Movies({
             <>
               <MoviesCardList
                 moviesCards={moviesCardsSearchList}
-                isSaved={false}
+                onLikeClick={onLikeClick}
+                moviesCardsSaved={moviesCardsSaved}
               />
             </>
           )}
