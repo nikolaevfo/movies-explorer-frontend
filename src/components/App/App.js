@@ -171,10 +171,12 @@ function App() {
             setCurrentUser(res);
             setLoggedIn(true);
           } else {
+            console.log("1");
             history.push("/");
           }
         })
         .catch(() => {
+          console.log("2");
           setLoggedIn(false);
           history.push("/");
         });

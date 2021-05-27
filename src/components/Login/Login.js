@@ -11,7 +11,7 @@ function Login({ onLoggedIn, loggedIn }) {
 
   React.useEffect(() => {
     if (loggedIn) {
-      history.push("/");
+      history.push("/movies");
     }
   });
 

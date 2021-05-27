@@ -12,7 +12,7 @@ function Register({ onRegister, loggedIn }) {
 
   React.useEffect(() => {
     if (loggedIn) {
-      history.push("/");
+      history.push("/movies");
     }
   });
 
