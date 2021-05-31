@@ -1,9 +1,30 @@
-# Проект Movies
+# Проект "Movies"
 
-## Ссылка на макет Figma
+## Дипломный проект в Яндекс.Практикуме - приложение с возможностью регистрации и авторизации, позволяюще производить поиск фильмов по ключевым словам и сохранять их. 
 
-[Диплом-макет](https://www.figma.com/file/dqAFVglKzWn9GL6Q4DqHiU/Diploma-Copy?node-id=891%3A3857)
+### Ссылка на GH Pages: [Movies](https://nikolaevfo.movies.nomoredomains.icu).
+### Ссылка на репозиторий бэкенда: [Movies](https://github.com/nikolaevfo/movies-explorer-api).
 
-## Ссылка на домен
+#### В процессе работы использованы:
+- Вёрстка по стандарту HTML5, стили CSS3(Flexbox, Grid)
+- JavaScript ES6, асинхронные запросы на сервер Fetch API
+- GIT, WebPack
+- React: Create React App, хуки useState, useEffect, useContext, useRef, функциональные компоненты
+- работа с LocalStorage и Cookies
 
-[nikolaevfo.movies.nomoredomains.icu](https://nikolaevfo.movies.nomoredomains.icu)
+### Функционал проекта:
+- Получения данных о фильмах, регистрация и авторизация ползьователя через запросы к стороннему и собственному API
+- Редактирование данных пользователя (данные пользователя получены с сервера)
+- Поиск фильмов по ключевым словам
+- Добавление фильма в "сохраненные" при постановке лайка
+- Удаление карточки, если она добавлена вами
+
+### Развёртывание:
+- Клонировать репозиторий командой
+```
+git clone https://github.com/nikolaevfo/movies-explorer-frontend.git
+```
+- Установить сторонние библиотеки командой npm i
+- Запустить вертуальный сервер командой npm run dev
+- Для финальной сборки введите команду npm run build
+- Для работы с проектом у вас должен быть установлен Node.js - https://nodejs.org/en/download/
