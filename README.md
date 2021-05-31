@@ -3,7 +3,7 @@
 ## Дипломный проект в Яндекс.Практикуме - приложение с возможностью регистрации и авторизации, позволяющее производить поиск фильмов по ключевым словам и сохранять их. 
 
 ### Ссылка на GH Pages: [Movies](https://nikolaevfo.movies.nomoredomains.icu).
-### Ссылка на репозиторий бэкенда: [Movies](https://github.com/nikolaevfo/movies-explorer-api).
+### Ссылка на репозиторий бэкенда: [Movies-API](https://github.com/nikolaevfo/movies-explorer-api).
 
 #### В процессе работы использованы:
 - Вёрстка по стандарту HTML5, стили CSS3(Flexbox, Grid)
