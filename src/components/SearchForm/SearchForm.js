@@ -1,19 +1,68 @@
-import React from 'react';
-import './SearchForm.css';
-import '../../vendor/container.css';
+import React, { useState } from "react";
+import { useFormWithValidation } from "../../hooks/useForm";
+import "../../vendor/container.css";
+import "./SearchForm.css";
 
-function SearchForm() {
- 
+function SearchForm({ onSubmit }) {
+  const { values, handleChange, resetForm, isValid } = useFormWithValidation();
+  const [errorText, setErrorText] = useState("");
+  const [isShortFilm, setIsShortFilm] = useState(false);
+
+  function handleSearchSubmit(e) {
+    e.preventDefault();
+    onSubmit({ search: values.search, isShort: isShortFilm });
+    resetForm();
+  }
+
+  function handleClickCheckbox() {
+    setIsShortFilm(!isShortFilm);
+  }
+
+  function handleSearchClick() {
+    if (!isValid) {
+      setErrorText("Нужно ввести ключевое слово");
+    }
+  }
+  React.useEffect(() => {
+    setErrorText("");
+  }, [values.search]);
   return (
     <section className="search-form">
       <div className="search-form__container container">
-        <form action="" className="search-form__form" name="searchForm">
-          <input type="text" className="search-form__input-text" placeholder="Фильм" required/>
+        <form
+          action="#"
+          className="search-form__form"
+          name="searchForm"
+          onSubmit={handleSearchSubmit}
+        >
+          <input
+            type="text"
+            name="search"
+            className="search-form__input-text"
+            placeholder="Фильм"
+            minLength="1"
+            onChange={handleChange}
+            value={values.search || ""}
+            required
+          />
+          <span className="search-form__form-iput-text-error">
+            {errorText || ""}
+          </span>
           <div className="searh-form__button-wrapper">
-            <button className="search-form__button-submit"></button>
+            <button
+              className="search-form__button-submit"
+              type="submit"
+              onClick={handleSearchClick}
+            />
           </div>
-          <label className="search-form__checkbox-label">Короткометражки
-            <input type="checkbox" className="search-form__checkbox-input" />
+          <label className="search-form__checkbox-label">
+            Короткометражки
+            <input
+              type="checkbox"
+              name="isShortFilm"
+              onChange={handleClickCheckbox}
+              className="search-form__checkbox-input"
+            />
             <span className="search-form__checkbox-slider"></span>
           </label>
         </form>
@@ -22,4 +71,4 @@ function SearchForm() {
   );
 }
 
-export default SearchForm; 
+export default SearchForm;

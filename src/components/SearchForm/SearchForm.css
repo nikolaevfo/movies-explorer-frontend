@@ -30,6 +30,19 @@
   line-height: 20px;
   outline: none;
 }
+.search-form__form-iput-text-error {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #EE3465;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 10px;
+  left: 75px;
+}
 
 .searh-form__button-wrapper {
   padding-right: 30px;
